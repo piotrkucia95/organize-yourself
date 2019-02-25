@@ -1,0 +1,83 @@
+<div class="subpage p-3">
+    <h1>My Profile</h1>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="table-responsive">
+                <table class="table profile-table">
+                    <tbody>
+                        <tr>
+                            <th>Username:</th>
+                            <td>{{user.username}}</td>
+                            <td>
+                                <span class="modal-switch" data-toggle="modal" data-target="#changeModal" ng-click="displayModal('username')">
+                                    Change
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>E-mail:</th>
+                            <td>{{user.email}}</td>
+                            <td>
+                                <span class="modal-switch" data-toggle="modal" data-target="#changeModal" ng-click="displayModal('e-mail')">
+                                    Change
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Display name:</th>
+                            <td>{{user.displayName}}</td>
+                            <td>
+                                <span class="modal-switch" data-toggle="modal" data-target="#changeModal" ng-click="displayModal('display name')">
+                                    Change
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Password:</th>
+                            <td><i class="fas fa-unlock"></i></td>
+                            <td>
+                                <span class="modal-switch" data-toggle="modal" data-target="#changeModal" ng-click="displayModal('password')">
+                                    Change
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="changeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title {{modalChangeType == 'password' ? 'd-none' : ''}}" id="modal-title">Current {{modalChangeType}}: {{user[userKey]}} </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form ng-submit="saveChanges()">
+                    <div class="modal-body">
+                        <div class="form-group {{modalChangeType == 'password' ? '' : 'd-none'}}">
+                            <label for="current-password">Enter current password: </label>
+                            <input type="password" class="form-control" id="current-password" aria-describedby="emailHelp" ng-model="currentPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-name">New {{modalChangeType}}:</label>
+                            <input type="{{modalChangeType == 'password' ? 'password' : 'text'}}" class="form-control" id="new-name" aria-describedby="emailHelp" ng-model="newValue">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordInput">Confirm:</label>
+                            <input type="{{modalChangeType == 'password' ? 'password' : 'text'}}" class="form-control" id="confirm-name" ng-model="confirmValue">
+                        </div>  
+                        <div class="wrong-values text-danger mb-2"></div>                   
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-save">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

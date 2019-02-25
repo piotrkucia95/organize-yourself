@@ -1,0 +1,91 @@
+<div class="subpage p-3">
+    <h1>
+        My Notes
+        <span class="float-right"><i class="fas fa-plus-circle hover-pointer hover-color" ng-click="isAddVisible = !isAddVisible"></i></span>
+    </h1>
+    <div class="table-responsive">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col" class="hover-pointer hover-underline" ng-click="sortTableBy('name', true)">
+                        Name
+                        <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                    </th>
+                    <th scope="col">
+                        Note
+                    </th>
+                    <th scope="col">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-show="isAddVisible">
+                    <td>
+                        <input class="form-control" type="text" placeholder="Name" ng-model="newNote.name"/>
+                    </td>
+                    <td>
+                        <textarea class="form-control" placeholder="Note" ng-model="newNote.note"></textarea>
+                    </td>
+                    <td>
+                        <i class="fas fa-check-circle" ng-click="addNote()"></i>
+                        <i class="fas fa-times-circle" ng-click="closeAddPanel()"></i>
+                    </td>    
+                </tr>
+                <tr ng-repeat="note in notes.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                    <td>
+                        <input class="form-control" type='text' ng-attr-id="{{'name-input-' + note.id}}" ng-value="note.name" ng-show="isEditVisible[$index]"/> 
+                        <span ng-hide="isEditVisible[$index]">{{note.name}}</span>
+                    </td>
+                    <td class="truncate">
+                        <textarea class="form-control" ng-attr-id="{{'note-input-' + note.id}}" ng-value="note.note" ng-show="isEditVisible[$index]"></textarea>
+                        <span class="hover-pointer hover-color" ng-hide="isEditVisible[$index]" data-toggle="modal" 
+                              data-target="#noteModal" ng-click="displayNoteModal(note)">
+                            {{note.note.split('\\n').length > 1 ? note.note.split('\\n')[0] + '...' : note.note}}
+                        </span>
+                    </td>
+                    <td>
+                        <i class="fas fa-edit hover-pointer hover-color" ng-hide="isEditVisible[$index]" ng-click="showEditPanel($index)"></i>
+                        <i class="fas fa-check-circle hover-pointer hover-color" ng-show="isEditVisible[$index]" ng-click="updateNote(note, $index)"></i>
+
+                        <i class="fas fa-trash-alt hover-pointer hover-color" ng-hide="isEditVisible[$index]" ng-click="deleteNote(note.id)"></i>
+                        <i class="fas fa-times-circle hover-pointer hover-color" ng-show="isEditVisible[$index]" ng-click="isEditVisible[$index] = false"></i>
+                    </td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 d-xs-none"></div>
+        <div class="col-sm-8 d-xs-12 text-right">
+            <span style="margin-right: 10px">Rows per page:</span>
+                <select ng-model="itemsPerPage" 
+                        ng-change="openFirstPage()" 
+                        ng-options="option for option in [5, 10, 15]">
+                </select>
+            </span> 
+            &nbsp;&nbsp;<span id="page-counter"></span>
+            <span ng-click="prevPage()"><i class="fas fa-angle-left hover-pointer hover-color"></i></span>
+            <span ng-click="nextPage()"><i class="fas fa-angle-right hover-pointer hover-color"></i></span>
+        </div>
+    </div>
+
+    <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>

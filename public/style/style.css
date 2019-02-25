@@ -1,0 +1,401 @@
+body {
+    background-color: #5BC8AC;
+    color: #FCFCFA;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-title {
+    font-family: 'Caveat', cursive;
+    font-size: 9em;
+    text-align: center;
+    margin-top: 25vh;
+}
+
+.main-buttons {
+    width: 80%;
+    margin: 0 auto;
+    font-family: 'Caveat', cursive;
+    font-size: 2em;
+    margin-bottom: 15vh;
+}
+
+.main-button {
+    padding: 30px 10px;
+}
+
+.main-button a, .main-button span{
+    color: #FCFCFA;
+}
+
+.main-button a:hover, .main-button span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.modal {
+    color: black;
+}
+
+.btn {
+    color: #FCFCFA;
+}
+
+.btn-save {
+    background-color: #5BC8AC;
+}
+
+.btn-close {
+    background-color: #F18D9E;
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+}
+
+.btn-google {
+    background-color: #DD4B39;
+}
+
+.modal-header {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.no-separator {
+    padding-top: 0;
+    border-top: none;
+}
+
+.modal label {
+    margin-bottom: 3px;
+}
+
+.form-control {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.about-main {
+    max-width: 80%;
+    margin: 0 auto;
+    font-family: 'Caveat', cursive;
+    font-size: 2em;
+    margin-top: 8vh;
+    margin-bottom: 10vh;
+}
+
+.about-main a {
+    color:#FCFCFA;
+}
+
+.about-main ul {
+    text-indent: none;
+    list-style-position: inside;
+}
+
+.about-icon {
+    font-size: 2em;
+}
+
+.about-icon a {
+    transition: all 0.1s linear;
+}
+
+.about-icon a:hover {
+    color: #EEEEEE;
+    font-size: 1.1em;
+}
+
+.header {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+}
+
+.header-title {
+    font-family: 'Caveat', cursive;
+    font-size: 3em;
+}
+
+.header-title a {
+    color: white;
+}
+
+.header-info {
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.header-info:hover{
+    cursor: pointer;
+    background-color: #4AB7AB;
+}
+
+#nav {
+    transition: all 0.5s ease-in-out;
+}
+
+#nav-switch {
+    width: 30px;
+    min-height: 30px;
+    position: fixed;
+    top: 50vh;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    z-index: 200;
+    transition: all 0.5s ease-in-out;
+}
+
+#nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#nav ul li {
+    padding: 20px 0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#nav ul li a {
+    color: white;
+}
+
+.homepage h1 {
+    font-size: 5em;
+}
+
+.homepage p {
+    font-size: 1.2em;
+}
+
+.homepage-picture {
+    height: 50vh;
+}
+
+.subpage h1 {
+    font-size: 3em;
+}
+
+.table td.truncate {
+    max-width: 177px;
+}
+
+.table td.truncate span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.profile-table td, .profile-table th {
+    border: none;
+}
+
+.modal-switch:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.my-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.my-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: #eee;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+}
+
+.checkmark-disabled:hover {
+    cursor: not-allowed;
+}
+
+.my-checkbox input:checked ~ .checkmark {
+    background-color: #F18D9E;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.my-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.my-checkbox .checkmark:after {
+    left: 5px;
+    top: 1.5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.hover-pointer:hover {
+    cursor: pointer;
+}
+
+.hover-underline:hover {
+    text-decoration: underline;
+}
+
+.hover-color:hover {
+    color: #DDDDDD;
+}
+
+
+@media(max-width: 768px) {
+    .main-title {
+        font-size: 6em;
+    }
+    .hide-on-small {
+        display: none;
+    }
+    .modal-body {
+        font-size: 0.9em;
+    }
+    .modal-body input {
+        font-size: 0.9em;
+        height: 3em;
+    }
+    .homepage h1 {
+        font-size: 3em;
+    }
+    .homepage p {
+        font-size: 1.5em;
+    }
+    .subpage h1 {
+        font-size: 2em;
+    }
+    table {
+        font-size: 0.9em;
+    }
+    .nav-small {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 75%;
+        background-color: #F18D9E;
+        z-index: 100;
+    }
+    .display-out {
+        position: fixed;
+        left: -75%;
+    }
+    .display-in {
+        position: fixed;
+        left: 0;
+    }
+    .nav-switch-show {
+        background-color: #5BC8AC;
+        left: 75%;
+        -webkit-transform: translate(-100%, -75%) !important;
+        -ms-transform: translate(-100%, -75%) !important;
+        transform: translate(-100%, -75%) !important;
+    }
+    .nav-switch-hide {
+        left: 0;
+        background-color: #F18D9E;
+    }
+}
+
+@media(max-width: 500px) {
+    .main-title {
+        font-size: 3em;
+        margin-top: 20vh;
+    }
+    .main-buttons {
+        font-size: 1.7em;
+        margin-bottom: 5vh;
+    }
+    .header-title {
+        font-size: 2em;
+    }
+    .header-info {
+        margin-top: 0;
+    }
+    .homepage h1 {
+        font-size: 2.5em;
+    }
+    .homepage p {
+        font-size: 1em;
+    }
+    .homepage-picture {
+        height: 40vh;
+    }
+    .subpage h1 {
+        font-size: 1.5em;
+    }
+    .subpage {
+        font-size: 0.8em;
+    }
+    .modal-body {
+        font-size: 0.8em;
+    }
+    .modal-body input, .subpage input {
+        font-size: 0.8em;
+        height: 2.5em;
+    }
+    .subpage textarea {
+        font-size: 0.8em;
+        height: 2.5em;
+        padding: .2rem .375rem;
+    }
+    .btn {
+        font-size: 0.8em;
+    }
+    .about-main {
+        font-size: 1.5em;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+    .about-main ul {
+        list-style-position: outside;
+    }
+}
+
+@media(max-width: 360px) {
+    .main-title {
+        margin-top: 16vh;
+    }
+    .main-buttons {
+        font-size: 1.5em;
+        margin-bottom: 5vh;
+    }
+    .modal-body {
+        font-size: 0.8em;
+    }
+    .modal-footer button {
+        font-size: 0.65em;
+    }
+}

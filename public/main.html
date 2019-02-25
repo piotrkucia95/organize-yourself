@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="mainApp">
+<head>
+    <base href="/"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=ege, chrome=1"/>
+    <title>Organize yourself! - online todos & notes</title>
+    <meta name="description" content="Organize yourself! is an online platform that helps You manage your todos & notes. 
+                                      You can add new tasks to your todo list, set reminding notifications for them and add additional notes.
+                                      Let's get organized!"/>
+    <meta name="keywords" content="todo, notes, organize, yourself, plan, hours, list, task, event, occurance"/>
+    <link rel="icon" href="img/favicon.ico" type="image/png"/>
+    <link rel="stylesheet" href="style/lib/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="style/style.css" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+    <script src="app/lib/angular.min.js"></script>
+    <script src="app/lib/angular-route.min.js"></script>
+    <script src="app/lib/angular-animate.min.js"></script>
+    <script src="app/lib/jquery-3.3.1.min.js"></script>
+    <script src="app/lib/popper.min.js"></script>
+    <script src="app/lib/bootstrap.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="app/mainApp.js"></script>
+</head>
+<body class="main-bg">
+    <div>
+        <div class="row header" ng-controller="MainController">
+            <div class="col-8 header-title">
+                <a href="/">Organize yourself!</a>
+            </div>
+            <div class="col-4 dropdown">
+                <div class="float-right header-info" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="hide-on-small"><i class="fas fa-user"></i>&nbsp;</span>
+                    <span class="hide-on-small">{{user.displayName}}&nbsp;</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" ng-href="/profile">My Profile</a>
+                    <a class="dropdown-item" ng-href="#" ng-click="openAbout()">About</a>
+                    <a class="dropdown-item" ng-href="#" ng-click="logout()">Log out</a>
+                </div>
+            </div>
+        </div>
+
+    <div class="row m-0">
+        <div id="nav" class="col-md-3 d-md-block pt-3 nav-small display-out" ng-controller="MainController">
+            <ul>
+                <li><a ng-href="/todos" ng-click="toggleNav()">MY TODOS</a></li>
+                <li><a ng-href="/notes" ng-click="toggleNav()">MY NOTES</a></li>
+                <li><a ng-href="/profile" ng-click="toggleNav()">MY PROFILE</a></li>
+                <li><a ng-href="#" ng-click="openAbout()">ABOUT</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 col-sm-12 col-xs-12">
+            <main ng-view></main>
+        </div>
+    </div>
+
+    <div id="nav-switch" class="p-1 d-xs-block d-md-none nav-switch-hide" ng-controller="MainController" ng-click="toggleNav()">
+        <span class="ml-1"><i class="fas fa-arrow-right"></i></span>
+    </div>
+
+    <!-- FOOTER -->
+
+    <script src="app/services/userService.js"></script>
+    <script src="app/controllers/mainController.js"></script>
+    <script src="app/controllers/homepageController.js"></script>
+    <script src="app/controllers/todosController.js"></script>
+    <script src="app/controllers/notesController.js"></script>
+    <script src="app/controllers/profileController.js"></script>
+</body>
+</html>
